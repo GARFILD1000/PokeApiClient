@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PokeApi Client</string>
+    <string name="network_error">Network Error\nTry again or\nCheck Internet Connection</string>
+</resources>

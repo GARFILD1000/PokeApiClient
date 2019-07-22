@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorPokemonRed">#EF5350</color>
+    <color name="colorPokemonRedDark">#A33836</color>
+    <color name="colorPokemonBlue">#3560A9</color>
+    <color name="colorPokemonBlueDark">#26447A</color>
+    <color name="colorPokemonYellow">#FFC91A</color>
+    <color name="colorPokemonYellowDark">#B88F14</color>
+    <color name="colorBlack">#0C0C0C</color>z
+    <color name="colorGray">#252525</color>
+    <color name="colorGrayDark">#1A1919</color>
+    <color name="transparent">#00000000</color>
+</resources>

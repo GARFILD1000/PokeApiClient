@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPokemonRed</item>
+        <item name="colorPrimaryDark">@color/colorPokemonRedDark</item>
+        <item name="colorAccent">@color/colorPokemonBlue</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="HeaderText">
+        <item name="android:textColor">@color/colorPokemonBlueDark</item>
+        <item name="android:textSize">14pt</item>
+    </style>
+
+    <style name="TextMain">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">10pt</item>
+
+    </style>
+
+    <style name="CircularProgress" parent="Theme.AppCompat.Light">
+        <item name="android:colorAccent">@color/colorPokemonYellow</item>
+    </style>
+
+    <style name="TextSecondary">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">7pt</item>
+    </style>
+
+
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget" tools.override="true">
+        <item name="tabBackground">@drawable/tab_background</item>
+    </style>
+</resources>
