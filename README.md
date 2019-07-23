@@ -25,7 +25,7 @@ During the test job execution, I implemented the following functionality of the 
 
 - Three CheckBox'es in the toolbar of main activity, which controls the sorting parameters of the list: attack, defense, healthpoints. When the "Attack", "Defense" or "HP" CheckBox'es are activated, the pokemon list is sorted by the selected peremeters. Pokemon in the beginning of the list, the characteristics of which are better than all others, is hightlighted in red. Sorting is performed by total parameters of the selected characteristics.
 
-![Alt text](https://github.com/GARFILD1000/PokeApiClient/blob/master/screenshots/sorting1.png?raw=true "screenshot")
+![Alt text](https://github.com/GARFILD1000/PokeApiClient/blob/master/screenshots/sorting.png?raw=true "screenshot")
 ![Alt text](https://github.com/GARFILD1000/PokeApiClient/blob/master/screenshots/sorting2.png?raw=true "screenshot")
 
 Of the additional tasks I implemented sorting the current list of pokemon by selected peremeters. 
