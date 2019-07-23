@@ -74,12 +74,16 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
     }
 
     public void setItems(List<Poke> newPokes){
+
         Collections.sort(newPokes, new DecPokeComparator());
-        PokeDiffUtilCallback pokeDiffUtilCallback =
-                new PokeDiffUtilCallback(pokesList, newPokes);
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(pokeDiffUtilCallback);
         this.pokesList = newPokes;
-        diffResult.dispatchUpdatesTo(this);
+        notifyDataSetChanged();
+//        Collections.sort(newPokes, new DecPokeComparator());
+//        PokeDiffUtilCallback pokeDiffUtilCallback =
+//                new PokeDiffUtilCallback(pokesList, newPokes);
+//        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(pokeDiffUtilCallback);
+//        this.pokesList = newPokes;
+//        diffResult.dispatchUpdatesTo(this);
     }
 
     public void addItem(Poke newPoke){
@@ -185,9 +189,12 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
                 String pokeImageUrl = poke.getAllImagesUrl().get(0);
                 Picasso.get()
                         .load(pokeImageUrl)
+                        .error(R.drawable.no_image)
                         .into(pokeImageView);
             }
-            //pokeImageView.setVisibility((!poke.getAllImagesUrl().isEmpty()) ? View.VISIBLE : View.INVISIBLE);
+            else{
+                Picasso.get().load(R.drawable.no_image).into(pokeImageView);
+            }
         }
     }
 

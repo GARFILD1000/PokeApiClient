@@ -11,12 +11,12 @@
 
     <style name="HeaderText">
         <item name="android:textColor">@color/colorPokemonBlueDark</item>
-        <item name="android:textSize">14pt</item>
+        <item name="android:textSize">11pt</item>
     </style>
 
     <style name="TextMain">
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:textSize">10pt</item>
+        <item name="android:textSize">8pt</item>
 
     </style>
 

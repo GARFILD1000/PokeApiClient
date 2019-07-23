@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable List<Poke> pokes) {
                 //there we catch data that was added to database
+
                 if(pokes != null && !pokes.isEmpty()) {
                     pokeAdapter.setItems(pokes);
                 }
@@ -198,17 +200,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 switch (view.getId()){
                     case R.id.reloadPokesButton :
-                        if (pokeAdapter.getItems() != null
-                                && !pokeAdapter.getItems().isEmpty()) {
-                            Random random = new Random();
-                            random.setSeed(System.nanoTime());
-                            int rand = Math.abs(random.nextInt(pokeAdapter.getItemCount()));
-                            saveStartElementPosition(rand);
-                            pokesViewModel.deleteAll();
-                            pokeAdapter.deleteItems();
-                            pokeManager.setStartLoadingPosition(rand);
-                            pokeManager.loadMorePokes();
-                        }
+                        reloadPokesFromRandom();
                         break;
                     case R.id.showToolsButton :
                         if(toolsLayout.getVisibility() != View.VISIBLE) {
@@ -223,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
         reloadPokesButton.setOnClickListener(onClickListener);
         showToolsButton.setOnClickListener(onClickListener);
     }
@@ -280,5 +271,18 @@ public class MainActivity extends AppCompatActivity {
     private Integer loadStartElementPosition(){
         SharedPreferences sharedPreferences = getSharedPreferences(APP_SHARED_PREF, Context.MODE_PRIVATE);
         return sharedPreferences.getInt(PREF_START_ELEMENT_POSITION, 0);
+    }
+
+    private void reloadPokesFromRandom(){
+        if (pokeAdapter.getItems() != null
+                && !pokeAdapter.getItems().isEmpty()) {
+            Random random = new Random();
+            random.setSeed(System.nanoTime());
+            int rand = Math.abs(random.nextInt(pokeAdapter.getItemCount()));
+            saveStartElementPosition(rand);
+            pokeAdapter.deleteItems();
+            pokesViewModel.deleteAll();
+            pokeManager.setStartLoadingPosition(rand);
+        }
     }
 }

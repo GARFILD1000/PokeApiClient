@@ -1,15 +1,11 @@
 package com.example.pokemonclient.views;
 
-import android.app.Application;
 import android.os.Handler;
-import android.util.Log;
 
 import com.example.pokemonclient.models.Poke;
 import com.example.pokemonclient.models.PokeListModel;
 import com.example.pokemonclient.models.PokeModel;
 import com.example.pokemonclient.network.RestController;
-import com.example.pokemonclient.views.PokeAdapter;
-import com.example.pokemonclient.views.PokesViewModel;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -83,10 +79,12 @@ public class PokeManager {
     //function that loads more pokemons to list from database or server
     public void loadMorePokes(){
         //if there is no loading process and we can load more pokes to list
+
         if(!isPokesLoading && (pokesNumber > pokeAdapter.getItemCount() || pokesNumber == 0)) {
             Integer offset = startLoadingPosition + pokeAdapter.getItemCount();
             offset = (pokesNumber != 0) ? offset % pokesNumber : offset;
             loadPokesFromServer(pageSize, offset);
+
         }
     }
 
@@ -102,8 +100,6 @@ public class PokeManager {
             @Override
             public void onListReceived(PokeListModel pokeListModel) {
                 pokesNumber = pokeListModel.getCount();
-
-                Log.d("Items Received",""+pokeListModel.getResults().get(0).getName());
                 if (pokeAdapter.getItemCount() < pokesNumber) {
                     for (PokeListModel.Results poke : pokeListModel.getResults()) {
                         restController.getPokeByName(poke.getName());
@@ -131,7 +127,7 @@ public class PokeManager {
                 receivedPokes.add(poke);
                 pokesViewModel.insert(poke);
                 requestedPokes.remove(poke.getName());
-                //Log.d("Received",poke.getName());
+
                 pokesLoadedNumber++;
                 pokesRequestedNumber--;
 
